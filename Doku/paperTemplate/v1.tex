@@ -1,0 +1,235 @@
+\documentclass[11pt,a4paper,twoside,notitlepage]{article}
+%comment out the line above and decomment the one below; the format will change
+%\documentclass[conference,a4paper]{IEEEtran}  
+
+%
+% Here, you specify the packages you need
+%
+
+%You need these 2 packages to write algorithms
+\usepackage{algorithmic}
+\usepackage{algorithm}
+%You need this package to handle figures
+\usepackage{graphics}
+%You need this package to write Romanian diacritics properly
+\usepackage{combelow}
+
+\usepackage[utf8x]{inputenc} %alternative solution for Romanian diacritics
+%This is how you define you own commands/macros
+%this is a macro for writing "n choose k" the Romanian style
+\newcommand{\mycomb}[2]{{C}_{#1}^{#2}} 
+%this is a macro for writing "n choose k" the English style
+%\newcommand{\mycomb}[2]{\left( \begin{array}{l}{#2}\\{#1}\\ \end{array} \right)} %this 
+
+
+%
+% The document content starts here
+%
+
+\begin{document}
+% paper title 
+\title{\LaTeX -- let's roll!}
+
+% author names and affiliations
+\author{
+Radu R\u{a}zvan Sl\u{a}vescu\\ %double backslash means linebreak
+Rom\^{a}nia\\
+}
+
+%generate paper title
+\maketitle 
+
+%this is the document's abstract
+\begin{abstract}
+We will present how to write a \texttt{.tex} file and how to generate a \texttt{.pdf} from it.
+This includes writting text, equations, tables, algorithms and handling references.
+You need little more than one hour to understand the basics of \LaTeX\ and one life to master it :)
+\end{abstract} 
+
+%This is how you start a section
+\section{Introduction}
+
+You should look in the \texttt{.tex} file (which is just a text file containing your text plus some formatting macros)
+as well as in the \texttt{.pdf} file generated from it. 
+You will see plain content and some macros. 
+A macro always starts with a backslash. For example, the macro \verb|\section{...}| %this is one way of entering verbatim text
+marks the beginning of a document section (of course, you should replace the dots with the section's actual name). 
+
+The comments are introduced by the \% sign and will help you understand the meaning of the macros; the comment continues up to the end of line. 
+
+The commands needed for generating the \texttt{.pdf} are written in the file called \texttt{Makefile}; 
+make sure the variables in its first lines are properly set. 
+Then, all you need to do is to type \texttt{make} at the shell prompt.
+Alternatively, you can use \LaTeX\ %this is how we properly write the name of the magical LaTeX. 
+editors (see below) which provide the compiling commands. 
+
+\subsection{Some basics}  %This introduces a subsection. Latex will number it for you, e.g., 1.1
+
+%We will present how to write text, equations, tables, algorithms and how to handle references.
+
+
+First, Romanian letters:
+\u{a} 
+\^{\i}
+\cb{s} 
+\cb{t} 
+\u{A} 
+\^{I}
+\cb{S} 
+\cb{T} 
+\^a 
+\^A
+\"{u} (even if the latter one does not seem to be in Romanian). 
+In order to write them properly (use a comma instead of a cedilla for \cb{s}), you need to add \verb|\usepackage{combelow}| to your document's preamble. 
+Or you can add \verb|\usepackage[utf8x]{inputenc}| to your document's preamble, do a \verb|setxkbmap ro| in a terminal to change the keyboard layout 
+to Romanian, then you can enter Romanian diacritics using \texttt{AltGr} (e.g., \texttt{AltGr+t} for ț). 
+
+We can use bullets:
+\begin{itemize}
+    \item number one
+    \item number two
+\end{itemize}
+
+Or we can use numbered items: 
+\begin{enumerate}
+    \item un (aka 1)
+    \item dos (aka 2)
+\end{enumerate}
+
+To start a new paragraph, you just enter a blank line in the \texttt{.tex} file. The first paragraph will have no indentation. 
+This is normal; do not attempt to alter this.
+
+Some characters, like \$, \&, \%, \#, \_, \{, \}, have special meanings in \LaTeX; if you want to escape them, place a backslash in front of them. 
+In order to write a backslash in your \texttt{.pdf}, put \verb|\backslash| in your \texttt{.tex} file. To write $<$ or $>$, you should enclose them 
+between \$ signs (\verb|$<$| and \verb|$>$| respectively). 
+
+When we cite a paper (e.g., paper \cite{Zhou04} %this macro helps you cite
+), we take its bibtex reference from the web,
+store it in the \texttt{.bib} file and label it there (e.g., \texttt{gigel}; this label must be unique in the \texttt{.bib} file).
+Then use \verb|\cite{gigel}| in the \texttt{.tex} file and let \LaTeX\ handle ordering and cross-referencing. 
+Each time you use an idea, text etc. borrowed from some other author, you must properly cite the source. 
+It is a good time now to take a look in the \texttt{.bib} file and see how a bibtex entry of an article looks like.
+Then, you may want to search the web for the bibtex of an article (e.g., search bibtex "The Anatomy of a Large-Scale Hypertextual Web Search Engine"), 
+grab it and add it to the \texttt{.bib} file.
+
+The rest of this paper is structured as follows. 
+Section \ref{sec:s22} %crossreferences; see below, where the label is introduced
+describes the implementation details, etc. 
+
+
+\section{Implementation Details} 
+\label{sec:s22} %this is what you need to write when you reffer to this section; here you just introduced the label
+
+If we have algorithms used/modified/implemented/introduced, we can describe them. 
+For instance, algorithm \ref{ftalg}. 
+Describing algorithms requires studying the documentation of the \texttt{algorithmic} and \texttt{algorithm} packages.
+
+\begin{algorithm}
+ \caption{An algorithm looks like this} %algorithm name
+   \label{ftalg} %label used to reffer it from text
+   \begin{algorithmic}
+     \IF{$Committed(G_{1},GR,\alpha)$} 
+      \STATE $BRT_{\alpha}$ = $PredictBRT(G_{1},GR,\alpha,C_{GR})$
+      \STATE $C_{\beta}$ = $ContextUpdate(C_{\beta},o)$
+     \ENDIF
+      \IF{$utility \ge CommunicationCost(G_{2})$}
+        \STATE $Int.To(G_{1},Communicate(G_{1},G_{2},o))$
+      \ENDIF
+   \end{algorithmic}
+\end{algorithm}
+
+We can write equations:
+% this is an equation 
+\begin{equation} 
+  \frac{S:a_{m} \land r_{b} \land d}
+       {B:d_{c} \land ((d_{e} \land \neg d_{t_{2}} \land d_{t_{15}}) \lor (\neg d_{e} \land d_{t_{2}})}
+\label{eq:e50}
+\end{equation}
+
+And big curly brackets:
+
+\[\left \{ 
+    \begin{array}{l}
+        b=\frac{r}{r+s+2} \\
+        d = \frac{s}{r+s+2}\\ 
+        u = \frac{2}{r+s+2}
+    \end{array}\right.
+\]
+
+The notations for "n choose k" and sum look like 
+%inside a text line, mathematical formulas are written between dollar signs $
+$\mycomb{n}{k}$ %Using a macro. Change the implementation in the document's preamble and the formula layout will change - no modification inside the document
+ and $\displaystyle \sum_{k=0}^{n} \mycomb{n}{k}$ respectively.
+
+\section{Results}
+
+\subsection{Tables}
+
+We summarize the results in a table, e.g., Table \ref{Mom}. Typically, the table is placed on top of the page where it is reffered for the first time, 
+or on one of the consecutive pages. It is the \LaTeX\  compiler decision. 
+
+\begin{table}% macros for table handling
+    \caption{Multinomial opinion multiplication}
+    \label{Mom}
+        \begin{center}
+            \begin{tabular}{|l|l|l|l|l|l|l|}
+                \hline 
+                & \multicolumn{3}{c|}{belief} & \multicolumn{3}{c|}{atomicity} \\
+                \cline{2-7}
+                & $poor$ & $avg$ & $good$ & $poor$ & $avg$ & $good$ \\ 
+        	\hline
+                $success$   &  0.1    &  0.2    &  0.3    & 0.4    & 0.5    &  0.6     \\
+                $failure$   &  0.1    &  0.2    &  0.3    & 0.4    & 0.5    &  0.6     \\
+                                                    \hline
+	    \end{tabular}
+        \end{center}
+\end{table}
+
+\subsection{Figures}
+We can also have figures, like Figure \ref{fig:bye}. Some sources claim they tell 1000 words/figure. 
+ %this is how you add a picture 
+ \begin{figure}
+  \begin{center}
+   \includegraphics{img/theend2.eps}
+   \caption{Saying bye bye} %title figure
+   \label{fig:bye} %figure label for reffering from text
+  \end{center}
+ \end{figure}
+ 
+
+
+\section{Conclusions}
+
+Now we know how to write text, tables, references etc.
+
+
+\section*{Acknowledgments} % use section* for acknowledgement as you don't want to number it
+Special thanks to Knuth and Lamport for section \ref{sec:s22}. %this is how you refer to a section
+
+
+\appendix
+
+\section{How to run the example}
+
+
+The \texttt{v1.tex} file contains the source; edit it with
+%another way of introducing verbatim text
+\begin{verbatim} 
+kile v1.tex
+\end{verbatim}
+
+To generate the \texttt{.pdf} file, type
+\begin{verbatim} 
+make
+\end{verbatim}
+
+And no, we don't attempt to launch the \texttt{Makefile}. Just type \texttt{make} at the shell prompt and enjoy. 
+
+Alternatively, you may press the QuickBuild button in the Kile editor.  
+
+%this is to generate the bibliography
+\bibliographystyle{IEEEtran} %same as .bst
+\bibliography{v1} %same file name as bib
+
+% that's all folks
+\end{document}

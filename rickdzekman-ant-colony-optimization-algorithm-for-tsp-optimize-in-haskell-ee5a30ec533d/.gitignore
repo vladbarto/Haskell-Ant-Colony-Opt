@@ -1,0 +1,7 @@
+.cabal-sandbox
+.cabal-sandbox/*
+dist
+dist/*
+cabal.sandbox.config
+AntColony.sublime-workspace
+AntColony.sublime-project

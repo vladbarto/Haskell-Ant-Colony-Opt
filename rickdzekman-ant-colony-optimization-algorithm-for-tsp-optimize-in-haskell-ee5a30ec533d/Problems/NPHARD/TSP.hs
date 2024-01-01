@@ -75,7 +75,7 @@ excludeOne country excluder = M.delete (getId excluder) country
 
 -- create a set of edges from a Map
 edgesetFromMap :: M.Map Id City -> S.Set Edge
-edgesetFromMap cm = M.fold (\c accum -> foldl (flip S.insert) accum (edges c)) S.empty cm
+edgesetFromMap cm = M.foldl (\accum c -> foldl (flip S.insert) accum (edges c)) S.empty cm
 
 -- Formats a city into a dot format string that can be parsed by GraphViz
 generateGraphviz :: Country -> String

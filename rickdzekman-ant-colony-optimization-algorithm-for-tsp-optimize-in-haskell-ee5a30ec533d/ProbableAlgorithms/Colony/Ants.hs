@@ -69,6 +69,12 @@ instance Show MainLeaderboard where
             foldFunc :: (String,Int) -> (Int,[Hcycle]) -> (String,Int)
             foldFunc (a,b) acc = (a ++ "\r\n>> " ++ show b ++ ". " ++ show acc,b+1)
 
+instance Semigroup MainLeaderboard where
+    (<>) = mappend
+
+instance Semigroup Leaderboard where
+    (<>) = mappend
+
 instance Monoid MainLeaderboard where
     mempty = MainLeaderboard M.empty S.empty
     mappend (MainLeaderboard t1 u1) (MainLeaderboard t2 u2) = MainLeaderboard (M.unionWith (++) t2 t1) (S.union u1 u2)

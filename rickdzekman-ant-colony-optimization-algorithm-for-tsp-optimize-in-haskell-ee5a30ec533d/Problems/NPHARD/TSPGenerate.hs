@@ -25,7 +25,7 @@ countryFromRand d rng = Country cityMap (edgesetFromMap cityMap)
       cityMap = evalRand randCitMap rng
          where
             randCitMap :: Rand StdGen (M.Map Id City)
-            randCitMap = initialCits >>= (\x -> M.fold foldfunc (return x) x)
+            randCitMap = initialCits >>= (\x -> M.foldr foldfunc (return x) x)
             initialCits :: Rand StdGen (M.Map Id City)
             initialCits = (\y -> M.fromList [(x,City x []) | x<-[0..(y - 1)]]) <$> count
             foldfunc :: City -> Rand StdGen (M.Map Id City) -> Rand StdGen (M.Map Id City)

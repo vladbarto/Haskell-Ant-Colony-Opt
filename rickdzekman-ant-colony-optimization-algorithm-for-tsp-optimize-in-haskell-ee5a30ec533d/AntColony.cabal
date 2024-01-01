@@ -57,8 +57,8 @@ executable AntColony
   other-extensions:    CPP, TemplateHaskell, RecordWildCards
   
   -- Other library packages from which modules are imported.
-  build-depends:       base >=4.7 && <4.8, random >=1.0 && <1.1, containers >=0.5 && <0.6, MonadRandom >=0.3 && <0.4,
-                       mtl >=2.1 && <2.2, transformers >=0.3 && <0.4, lens -any, free -any
+  build-depends:       base >=4.14 && <5, random >=1.2 && <2, containers >=0.5 && <0.6, MonadRandom >=0.3 && <0.4,
+                       mtl >=2.2 && <3, transformers >=0.3 && <0.4, lens -any, free -any
   
   -- Directories containing source files.
   -- hs-source-dirs:      

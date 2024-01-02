@@ -8,10 +8,10 @@ This is simply a showcase of my first Haskell project. Feel free to try it, use 
 
 * The code will automatically generate a new (and random) TSP-OPTIMIZE problem - and also a problem.gv graphviz file. If you have GraphViz installed simply run this to generate an image output: circo -Tpng output.gv -o tspCirco.png
 * It will then run the Ant Colony algorithm over it. The end result of the algorithm will get printed in the console.
-* It will actually print (w/ Show) the state of the "AntSolver" in the last round of execution. The key part to look for is the Leaderboard and it will show something like this:
-Leaderboard:
->> 1. (39,[Cycle w/ score: 39 and path: [Edge (5): 6--10,Edge (3): 2--10,Edge (4): 0--2,Edge (5): 0--5,Edge (5): 5--8,Edge (4): 3--8,Edge (2): 3--4,Edge (4): 4--7,Edge (2): 1--7,Edge (3): 1--9,Edge (2): 6--9]])
->> 2. (46,[Cycle w/ score: 46 and path: [Edge (3): 2--10,Edge (5): 6--10,Edge (5): 6--7,Edge (5): 7--9,Edge (3): 1--9,Edge (5): 1--4,Edge (2): 3--4,Edge (4): 3--8,Edge (5): 5--8,Edge (5): 0--5,Edge (4): 0--2]])
+* It will actually print (w/ Show) the state of the "AntSolver" in the last round of execution. The key part to look for is the Leaderboard and it will show something like this:  
+Leaderboard:  
+>> 1. (39,[Cycle w/ score: 39 and path: [Edge (5): 6--10,Edge (3): 2--10,Edge (4): 0--2,Edge (5): 0--5,Edge (5): 5--8,Edge (4): 3--8,Edge (2): 3--4,Edge (4): 4--7,Edge (2): 1--7,Edge (3): 1--9,Edge (2): 6--9]])  
+>> 2. (46,[Cycle w/ score: 46 and path: [Edge (3): 2--10,Edge (5): 6--10,Edge (5): 6--7,Edge (5): 7--9,Edge (3): 1--9,Edge (5): 1--4,Edge (2): 3--4,Edge (4): 3--8,Edge (5): 5--8,Edge (5): 0--5,Edge (4): 0--2]])  
 
 (in this example #1 = best score: a Hamiltonian cycle with a total weight of 39)
 

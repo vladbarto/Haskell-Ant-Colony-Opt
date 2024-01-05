@@ -78,4 +78,5 @@ ScentMap {getMap = fromList [(Edge (3): 0--1,1),(Edge (2): 0--2,1),(Edge (2): 0-
 
 ## 2. Implementarea algoritmului MOO pentru TSP
 
-> https://ashki23.github.io/markdown-latex.html
+> https://ashki23.github.io/markdown-latex.html  
+> ```runhaskell Main.hs pr76.tsp```

@@ -11,6 +11,10 @@ data Country = Country { getCities::M.Map Id City,getEdges::S.Set Edge } derivin
 -- Used for extracting a keylist of cities
 type Id = Int
 
+-- Define a type for the problem instance
+type Coord = (Double, Double)
+type Problem = [Coord]
+
 -- A city contains its ID (its index in a Map) and a list of Edges
 data City = City { getId::Id,edges::[Edge] }
 instance Eq City where
@@ -85,3 +89,18 @@ generateGraphviz country = foldToGraph ++ close
         drawEdge e accum = accum ++ " C" ++ (show $ cityLeft e) ++ " -- " ++ "C" ++ (show $ cityRight e) ++ " [label=" ++ (show $ edgeWeight e) ++ "];\r\n"
         open = "graph tsp { \r\n"
         close = "\r\n }"
+        
+
+-- Scris ulterior        
+-- Assuming you have a function like this in Problems.NPHARD.TSP module
+createCountry :: Problem -> Country
+createCountry coords = Country cities edges
+  where
+    cities = M.fromList $ zip [1..] $ map createCity coords
+    edges = edgesetFromMap cities
+
+    createCity :: Coord -> City
+    createCity (x, y) = City cityId []
+      where
+        cityId = length cities + 1
+

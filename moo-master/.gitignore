@@ -1,0 +1,11 @@
+dist
+cabal-dev
+TAGS
+*~
+*.o
+*.hi
+examples/*.txt
+examples/*.png
+examples/*.gp
+.stack-work
+

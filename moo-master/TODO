@@ -1,0 +1,76 @@
+# -*- mode: org -*-
+
+** TODO Moo genetic algorithm library, first release [13/13]
+  - [X] SBX
+  - [X] UNDX
+  - [X] premature convergence check (GensNoChange)
+  - [X] loop-with-IO
+  - [X] elite as SelectionOp
+  - [X] fitness scaling as Population a -> Population a
+  - [X] SelectionOp combinator
+  - [X] preserve elite in crossover and mutation
+  - [X] re-organize modules by coding type: binary, real-valued, permutation
+  - [X] no-op mutation and crossover
+  - [X] time limit
+  - [X] rename Fitness to Objective; clean-up minimizing and maximizing selection ops
+  - [X] don't require to evalFitness for the initial population
+  - [X] NSGA-II
+  - [X] reduce boilerplate for the common default scenarios
+  - [X] common framework to run GAs in all examples (CLI)
+  - [X] constrained selection without penalties
+  - [X] death penalty
+
+
+** TODO API usability [3/3]
+  - [X] withProbability to operate on arbitrary (x -> Rand x), otherwise identity
+  - [X] getConstrainedGenomes(Rs) remove Rs
+  - [X] getConstrainedGenomes adapt for Binary
+
+** TODO Tests [1/4]
+  - [X] Continuous problem (Rosenbrock) [4/4]
+    - [X] BLX
+    - [X] UNDX
+    - [X] SBX
+    - [X] Gaussian mutation
+  - [-] Some binary problem [4/8]
+    - [ ] gray encoding
+    - [ ] gray real encoding
+    - [ ] binary encoding
+    - [X] point mutation
+    - [ ] constant frequency mutation
+    - [X] 1-point crossover
+    - [X] 2-point crossover
+    - [X] uniform crossover
+  - [-] Stop conditions [4/6]
+    - [X] # of generations
+    - [X] GensNoChange
+    - [X] fitness condition
+    - [X] Or
+    - [ ] And
+    - [ ] time limit
+  - [ ] Loop constructs [0/3]
+    - [ ] loop
+    - [ ] loopWithLog
+    - [ ] loopIO
+
+
+** TODO: future releases [1/7]
+  - [ ] permutation GAs, TSP example
+  - [X] minimizing SelectionOp's
+  - [ ] optimize UNDX (linalg)
+  - [ ] optimize SBX (linalg)
+  - [ ] parallel selection
+  - [ ] parallel crossover
+  - [ ] parallel mutation
+  - [ ] parallel objective evaluation
+  - [ ] migrate to mwc-random
+  - [ ] benchmark to compare operators' performance
+  - [ ] Laplace crossover (LX)
+  - [ ] heuristic crossover (HX)
+  - [ ] power mutation (PM)
+  - [ ] Makinen, Periaux and Toivanen mutation (MPTM)
+
+** TODO: breaking changes for future releases [0/2]
+  - [ ] non-list genomes
+  - [ ] time-dependent mutation (generation counter)
+  - [ ] Michalewicz non-uniform mutation (NUM), require time-dependend mutation

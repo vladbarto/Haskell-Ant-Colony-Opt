@@ -1,6 +1,6 @@
 # Haskell Implementation of Ant Colony Optimization
 
-# Author: Ing. Bartolomei Vlad
+# Author: ing. Bartolomei Vlad
 [TOC]
 
 
@@ -77,5 +77,29 @@ cabal install --lib lens
     cabal clean
     cabal build
     ```
+  
+## 2. File: control-search-local
+### Setting up the project
+- cabal init
+- import lines with control search
+- hoogle website
+- add to .cabal the build-dependencies `local-search`
+- run project with cabal run `project-folder-name`
+- download combinatorial-problems package
+- modify cabal from it
+- cabal update && cabal run
+- in .cabal of your project add path to the other cabal as extra-path-..something
 
+- cabal install cabal-install
+- 
+### Contents:
+- `Main.hs`
 
+## 3. File: moo
+### Setting up the project
+- ```commandline
+  cabal build
+  ```
+
+### Contents:
+- `Main.hs`

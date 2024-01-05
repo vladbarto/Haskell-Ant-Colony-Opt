@@ -13,19 +13,20 @@ The project contains a documentation in Doku folder which addresses the results 
 
 ## Setup
 You will need to have two windows opened:
-- `emacs` -- a text editor
+- a text editor, whatever suits you best (Visual Studio, Notepad, Vim, Emacs and so on)
 - `system terminal` + `GHCi`  
 In addition to that, working with Haskell implies importing some packages from some libraries. For that, you need:
 - `ghcup` - an universal installer for Haskell
 - `cabal` or `stack`. We'll use `cabal`  
-__What to install__/__Steps__:
+
+__What to install__ / __Steps__:
+-
+First we take care of `ghcup`:  
 ```commandline
-sudo snap install emacs --classic
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
-> The last line is for `ghcup`  
 
-> If you choose to work in Vim, you can forget about Emacs
+Then we install `ghc`, which will have `ghci` included
 ```commandline
 ghcup install ghc 8.10.7
 ghcup set ghc 8.10.7 (in case you have multiple ghc versions installed)
@@ -35,11 +36,7 @@ For Cabal:
 ```commandline
 ghcup install cabal
 ```
-## Some libraries you are going to need:
-- `Control.Lens` ==> 
-```commandline 
-cabal install --lib lens
-```
+> Important note: Cabal and Ghc must have compatible versions if you want to avoid library-installing problems
 
 ## Working with Haskell code
 Usually, when you write Haskell code, you want to store it in a `.hs` file.  
@@ -59,6 +56,12 @@ In the same folder as the file you are currently writing:
 >    mtl >= 2.2 && < 3,
 >    -- other dependencies...
 > ```
+ 
+### Some libraries you are going to need:
+- `Control.Lens` ==> 
+```commandline 
+cabal install --lib lens
+```
 
 ### Monad.Random missing
 - at first

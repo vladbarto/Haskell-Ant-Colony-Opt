@@ -1,0 +1,40 @@
+cabal-version:      3.6
+name:               control-search-local
+version:            0.1.0.0
+
+author:             Vlad-Alexandru Bartolomei
+maintainer:         vladalexandru.bartolomei@stud.h-da.de
+
+extra-source-files: CHANGELOG.md
+
+-- Specify the local-search package as a dependency
+-- with the source-repository-package entry.
+source-repository-package
+  type: local
+  subdir: ./local-search-0.0.7
+
+library
+  exposed-modules:
+    -- Add your exposed modules here
+  build-depends:
+    base ^>=4.14.3.0,
+    local-search,
+    random >= 1.0.0.1
+  hs-source-dirs:   app
+  default-language: Haskell2010
+
+executable control-search-local
+  main-is:          Main.hs
+
+  -- Modules included in this executable, other than Main.
+  -- other-modules:
+
+  -- LANGUAGE extensions used by modules in this package.
+  -- other-extensions:
+  build-depends:
+    base ^>=4.14.3.0,
+    local-search,
+    random >= 1.0.0.1
+  hs-source-dirs:   app
+  default-language: Haskell2010
+

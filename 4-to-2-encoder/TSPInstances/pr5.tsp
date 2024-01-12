@@ -1,0 +1,11 @@
+NAME : pr5
+COMMENT : 5-city problem (Padberg/Rinaldi)
+TYPE : TSP
+DIMENSION : 5
+EDGE_WEIGHT_TYPE : EUC_2D
+NODE_COORD_SECTION
+1 2 2
+2 3 7
+3 8 4
+4 5 5
+5 1 7
